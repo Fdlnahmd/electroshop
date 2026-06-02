@@ -17,7 +17,7 @@ define('SITE_URL', (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . ($_SE
 define('ROOT_PATH', dirname(__DIR__)); // Path absolut ke root folder
 
 // Admin configuration
-define('ADMIN_EMAILS', ['admin@electroshop.com', 'admin@gmail.com']);
+define('ADMIN_EMAILS', ['admin@elektroshop.com', 'admin@electroshop.com', 'admin@gmail.com']);
 
 // Create database connection
 try {
@@ -156,6 +156,42 @@ function deleteProductImage($image_path)
         unlink($image_path);
     }
 }
+
+function hasImage($image)
+{
+    if (empty($image)) return false;
+    if (strpos($image, 'http://') === 0 || strpos($image, 'https://') === 0) {
+        return true;
+    }
+    // Check locally relative to current file
+    if (file_exists($image)) {
+        return true;
+    }
+    // Check locally relative to ROOT_PATH
+    $clean_image = ltrim($image, './');
+    if (file_exists(ROOT_PATH . '/' . $clean_image)) {
+        return true;
+    }
+    return false;
+}
+
+function getImageUrl($image, $isAdmin = false)
+{
+    if (empty($image)) return '';
+    if (strpos($image, 'http://') === 0 || strpos($image, 'https://') === 0) {
+        return $image;
+    }
+    
+    // Clean any prepended relative indicators
+    $clean_image = ltrim($image, './');
+    
+    if ($isAdmin) {
+        return '../' . $clean_image;
+    } else {
+        return $clean_image;
+    }
+}
+
 
 function resizeImage($source, $destination, $width, $height)
 {

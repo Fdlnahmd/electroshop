@@ -572,8 +572,8 @@ if ($action === 'edit' && isset($_GET['id'])) {
                         <input type="hidden" name="product_id" value="<?= $reviewProduct['id'] ?>">
 
                         <div class="product-info" style="margin-bottom: 20px;">
-                            <?php if ($reviewProduct['image'] && file_exists($reviewProduct['image'])): ?>
-                                <img src="<?= htmlspecialchars($reviewProduct['image']) ?>"
+                            <?php if (hasImage($reviewProduct['image'])): ?>
+                                <img src="<?= htmlspecialchars(getImageUrl($reviewProduct['image'])) ?>"
                                     alt="<?= htmlspecialchars($reviewProduct['name']) ?>"
                                     class="product-image">
                             <?php else: ?>
@@ -621,8 +621,8 @@ if ($action === 'edit' && isset($_GET['id'])) {
                             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
                                 <?php foreach ($reviewableProducts as $product): ?>
                                     <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; text-align: center;">
-                                        <?php if ($product['image'] && file_exists($product['image'])): ?>
-                                            <img src="<?= htmlspecialchars($product['image']) ?>"
+                                        <?php if (hasImage($product['image'])): ?>
+                                            <img src="<?= htmlspecialchars(getImageUrl($product['image'])) ?>"
                                                 alt="<?= htmlspecialchars($product['name']) ?>"
                                                 style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
                                         <?php else: ?>

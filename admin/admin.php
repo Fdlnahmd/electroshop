@@ -484,8 +484,8 @@ if ($action === 'edit' && isset($_GET['id'])) {
                                 <?php foreach ($products as $product): ?>
                                     <tr>
                                         <td>
-                                            <?php if ($product['image'] && file_exists($product['image'])): ?>
-                                                <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="product-image">
+                                            <?php if (hasImage($product['image'])): ?>
+                                                <img src="<?= htmlspecialchars(getImageUrl($product['image'], true)) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="product-image">
                                             <?php else: ?>
                                                 <div class="product-image">📦</div>
                                             <?php endif; ?>
@@ -562,9 +562,9 @@ if ($action === 'edit' && isset($_GET['id'])) {
 
                     <div class="form-group">
                         <label>Gambar Produk</label>
-                        <?php if ($edit_product && $edit_product['image']): ?>
+                        <?php if ($edit_product && hasImage($edit_product['image'])): ?>
                             <div style="margin-bottom: 15px;">
-                                <img src="<?= htmlspecialchars($edit_product['image']) ?>"
+                                <img src="<?= htmlspecialchars(getImageUrl($edit_product['image'], true)) ?>"
                                     alt="Current image"
                                     style="max-width: 200px; border-radius: 10px;">
                             </div>

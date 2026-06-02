@@ -423,8 +423,8 @@ foreach ($cartItems as $item) {
                 <?php foreach ($cartItems as $item): ?>
                     <div class="cart-item">
                         <div class="product-image">
-                            <?php if ($item['image'] && file_exists($item['image'])): ?>
-                                <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                            <?php if (hasImage($item['image'])): ?>
+                                <img src="<?= htmlspecialchars(getImageUrl($item['image'])) ?>" alt="<?= htmlspecialchars($item['name']) ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                             <?php else: ?>
                                 📦
                             <?php endif; ?>

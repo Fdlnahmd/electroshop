@@ -208,6 +208,15 @@ $currentUser = getCurrentUser();
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
         .product-image {
             width: 100%;
             height: 200px;
@@ -215,12 +224,21 @@ $currentUser = getCurrentUser();
             margin-bottom: 15px;
             overflow: hidden;
             position: relative;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.15) 37%, rgba(255, 255, 255, 0.05) 63%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .product-image img.loaded {
+            opacity: 1;
         }
 
         .product-image-placeholder {
@@ -434,22 +452,24 @@ $currentUser = getCurrentUser();
                 <?php foreach ($products as $product): ?>
                     <div class="product-card">
                         <div class="product-image">
-                            <?php if (!empty($product['image']) && file_exists($product['image'])): ?>
-                                <img src="<?= htmlspecialchars($product['image']) ?>"
-                                    alt="<?= htmlspecialchars($product['name']) ?>"
-                                    onerror="this.parentElement.innerHTML='<div class=\'product-image-placeholder\'>📦</div>'">
+                            <?php if (hasImage($product['image'])): ?>
+                                <img src="<?= htmlspecialchars(getImageUrl($product['image'])) ?>"
+                                     alt="<?= htmlspecialchars($product['name']) ?>"
+                                     loading="lazy"
+                                     onload="this.classList.add('loaded'); this.parentElement.style.background='none'; this.parentElement.style.animation='none';"
+                                     onerror="this.parentElement.innerHTML='<div class=\'product-image-placeholder\'>📦</div>'; this.parentElement.style.animation='none';">
                             <?php else: ?>
                                 <div class="product-image-placeholder">
                                     <?php
                                     // Icon berdasarkan kategori
-                                    $icons = [
-                                        'resistor' => '⚡',
-                                        'capacitor' => '🔋',
-                                        'ic' => '💾',
-                                        'sensor' => '🌡️',
-                                        'arduino' => '🤖',
-                                        'led' => '💡'
-                                    ];
+                                     $icons = [
+                                         'resistor' => '⚡',
+                                         'capacitor' => '🔋',
+                                         'ic' => '💾',
+                                         'sensor' => '🌡️',
+                                         'arduino' => '🤖',
+                                         'led' => '💡'
+                                     ];
                                     $categorySlug = '';
                                     foreach ($categories as $cat) {
                                         if ($cat['id'] == $product['category_id']) {

@@ -104,27 +104,27 @@ CREATE TABLE cart (
 
 -- Insert sample categories
 INSERT INTO categories (name, slug, description) VALUES
-('Resistor', 'resistor', 'Komponen resistor berbagai nilai'),
-('Kapasitor', 'capacitor', 'Kapasitor elektrolit dan ceramic'),
-('IC', 'ic', 'Integrated Circuit dan mikroprosesor'),
-('Sensor', 'sensor', 'Sensor suhu, cahaya, dan lainnya'),
-('Arduino', 'arduino', 'Board Arduino dan shield'),
-('LED', 'led', 'LED berbagai warna dan ukuran');
+('Resistor', 'resistor', 'Komponen resistor berbagai nilai hambatan'),
+('Kapasitor', 'capacitor', 'Kapasitor elektrolit dan keramik'),
+('IC', 'ic', 'Integrated Circuit dan mikrokontroler IC'),
+('Sensor', 'sensor', 'Sensor suhu, kelembaban, cahaya, dll.'),
+('Arduino', 'arduino', 'Board mikrokontroler Arduino dan shield'),
+('LED', 'led', 'Lampu LED indikator berbagai warna');
 
 -- Insert sample products
 INSERT INTO products (name, description, price, stock, category_id, image) VALUES
-('Resistor 1K Ohm', 'Resistor karbon 1/4 watt 1000 ohm', 500.00, 100, 1, '⚡'),
-('Resistor 10K Ohm', 'Resistor karbon 1/4 watt 10000 ohm', 500.00, 150, 1, '⚡'),
-('Kapasitor 100uF', 'Kapasitor elektrolit 100uF 25V', 2000.00, 50, 2, '🔋'),
-('Kapasitor 1000uF', 'Kapasitor elektrolit 1000uF 16V', 3500.00, 30, 2, '🔋'),
-('IC 555 Timer', 'IC timer 555 DIP-8', 15000.00, 25, 3, '💾'),
-('IC LM358', 'Operational Amplifier LM358', 8000.00, 40, 3, '💾'),
-('Sensor Suhu DHT22', 'Sensor suhu dan kelembaban digital', 45000.00, 15, 4, '🌡️'),
-('Sensor LDR', 'Light Dependent Resistor', 5000.00, 60, 4, '💡'),
-('Arduino Uno R3', 'Microcontroller board Arduino Uno R3', 250000.00, 10, 5, '🤖'),
-('Arduino Nano', 'Microcontroller board Arduino Nano', 150000.00, 20, 5, '🤖'),
-('LED 5mm Merah', 'LED 5mm warna merah', 1000.00, 200, 6, '💡'),
-('LED 5mm Biru', 'LED 5mm warna biru', 1000.00, 180, 6, '💡');
+('Resistor 1K Ohm', 'Resistor film karbon 1/4 watt dengan toleransi 5%, nilai hambatan 1K Ohm.', 500.00, 100, 1, 'uploads/products/resistor.png'),
+('Resistor 10K Ohm', 'Resistor film karbon 1/4 watt dengan toleransi 5%, nilai hambatan 10K Ohm.', 500.00, 150, 1, 'uploads/products/resistor.png'),
+('Kapasitor 100uF', 'Kapasitor elektrolit (Elco) nilai 100uF dengan tegangan maksimum 25V.', 2000.00, 50, 2, 'uploads/products/kapasitor.png'),
+('Kapasitor 1000uF', 'Kapasitor elektrolit (Elco) nilai 1000uF dengan tegangan maksimum 16V.', 3500.00, 30, 2, 'uploads/products/kapasitor.png'),
+('IC 555 Timer', 'IC timer/oscillator NE555 kemasan DIP-8 untuk berbagai proyek pewaktu.', 15000.00, 25, 3, 'uploads/products/ic_chip.png'),
+('IC LM358', 'Operational Amplifier (Op-Amp) dual tipe LM358 kemasan DIP-8.', 8000.00, 40, 3, 'uploads/products/ic_chip.png'),
+('Sensor Suhu DHT22', 'Sensor pengukur suhu dan kelembaban udara digital dengan presisi tinggi.', 45000.00, 15, 4, 'uploads/products/sensor_dht22.png'),
+('Sensor LDR', 'Sensor cahaya Light Dependent Resistor (fotoresistor) tipe GL5528.', 5000.00, 60, 4, 'uploads/products/sensor_ldr.png'),
+('Arduino Uno R3', 'Board mikrokontroler Arduino Uno R3 menggunakan chip ATmega328P.', 250000.00, 10, 5, 'uploads/products/arduino_uno.png'),
+('Arduino Nano', 'Board mikrokontroler mini Arduino Nano V3.0 dengan chip ATmega328P.', 150000.00, 20, 5, 'uploads/products/arduino_nano.png'),
+('LED 5mm Merah', 'Lampu LED indikator 5mm warna merah terang (Clear red).', 1000.00, 200, 6, 'uploads/products/led.png'),
+('LED 5mm Biru', 'Lampu LED indikator 5mm warna biru terang (Clear blue).', 1000.00, 180, 6, 'uploads/products/led.png');
 
 -- Insert sample admin user (password: admin123)
 INSERT INTO users (name, email, password, phone, address) VALUES

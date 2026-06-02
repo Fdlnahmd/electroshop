@@ -427,7 +427,7 @@ $paymentMethods  = ['cod' => 'Cash on Delivery', 'transfer' => 'Transfer Bank', 
             </div>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="index.php"       class="btn btn-secondary">Kembali ke Toko</a>
+            <a href="../index.php"       class="btn btn-secondary">Kembali ke Toko</a>
             <a href="admin_reviews.php" class="btn btn-secondary">Reviews</a>
             <a href="admin.php"       class="btn btn-secondary">Panel Admin</a>
         </div>
