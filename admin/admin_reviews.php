@@ -109,6 +109,7 @@ $stats['avg_rating'] = round((float)($stats['avg_rating'] ?? 0), 1);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Reviews - <?= SITE_NAME ?></title>
+    <link rel="icon" type="image/png" href="../uploads/favicon.png">
     <style>
         * {
             margin: 0;

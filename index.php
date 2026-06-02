@@ -48,6 +48,7 @@ $currentUser = getCurrentUser();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= SITE_NAME ?> - Part Elektronik Online Jakarta</title>
+    <link rel="icon" type="image/png" href="uploads/favicon.png">
     <style>
         * {
             margin: 0;

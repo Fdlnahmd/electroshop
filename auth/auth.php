@@ -70,6 +70,7 @@ if ($action === 'logout') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $action === 'register' ? 'Daftar' : 'Login' ?> - <?= SITE_NAME ?></title>
+    <link rel="icon" type="image/png" href="../uploads/favicon.png">
     <style>
         * {
             margin: 0;
